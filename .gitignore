@@ -1,0 +1,30 @@
+# Node / npm
+node_modules/
+package-lock.json.bak
+npm-debug.log*
+
+# Vercel
+.vercel/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+*.egg-info/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Misc cleanup artifacts
+replacements.txt
+secrets.txt

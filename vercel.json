@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/ably_token.py": {
+      "runtime": "@vercel/python@4.3.1"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/token", "destination": "/api/ably_token.py" }
+  ]
+}

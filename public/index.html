@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Void Chat</title>
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.ably.io/lib/ably.min-2.js"></script>
+</head>
+
+<body>
+  <!-- header section -->
+  <header class="fixed-header">
+    <div class="header-left">
+      <img src="/logo.png" alt="Void Chat logo" class="logo">
+      <h1 class="app-title">Void Chat</h1>
+    </div>
+    <div class="status-pill" id="status-pill" hidden>
+      <span class="status-pill__dot" id="status-dot"></span>
+      <span class="status-pill__label" id="status-label">Connecting…</span>
+    </div>
+  </header>
+
+  <!-- landing screen -->
+  <div class="landing" id="landing">
+    <div class="landing__card">
+      <h2 class="landing__title">Start a private chat</h2>
+      <p class="landing__subtitle">Messages go directly between browsers over WebRTC. Nothing is stored on any server.</p>
+
+      <label class="landing__label" for="name-input">Your display name</label>
+      <input type="text" class="landing__input" id="name-input" placeholder="e.g. Alex" maxlength="24" autocomplete="off">
+      <p class="landing__error" id="name-error" hidden>Please enter a name to continue.</p>
+
+      <div class="landing__choice" id="landing-choice">
+        <button class="landing__btn landing__btn--primary" id="btn-create-room" type="button">Create Room</button>
+        <button class="landing__btn" id="btn-join-room" type="button">Join Room</button>
+      </div>
+
+      <div class="landing__join" id="landing-join" hidden>
+        <label class="landing__label" for="join-input">Paste the room link or code your friend sent</label>
+        <input type="text" class="landing__input" id="join-input" placeholder="https://.../#a1b2c3 or a1b2c3" autocomplete="off">
+        <div class="landing__join-actions">
+          <button class="landing__btn" id="btn-join-back" type="button">Back</button>
+          <button class="landing__btn landing__btn--primary" id="btn-join-submit" type="button">Join</button>
+        </div>
+        <p class="landing__error" id="join-error" hidden>That doesn't look like a valid room link or code.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- chat screen -->
+  <div class="content" id="chat-content" hidden>
+    <div class="room-bar">
+      <div class="room-bar__code">
+        <span class="room-bar__label">Room code</span>
+        <span class="room-bar__value" id="room-code">—</span>
+      </div>
+      <div class="room-bar__row">
+        <input type="text" class="room-bar__input" id="share-input" readonly aria-label="Room link to share">
+        <button class="room-bar__copy" id="copy-btn" type="button" aria-label="Copy room link">Copy</button>
+      </div>
+    </div>
+
+    <div class="messages" id="messages">
+      <div class="messages__empty" id="messages-empty">
+        No messages yet — say hi 👋
+      </div>
+    </div>
+
+    <div class="full-banner" id="full-banner" hidden>
+      This room already has two people in it. Try creating a new room instead.
+    </div>
+
+    <form class="footer" id="message-form">
+      <input type="text" id="message-input" placeholder="Your message…" autocomplete="off" aria-label="Type a message">
+      <button type="submit" aria-label="Send message">Send</button>
+    </form>
+  </div>
+
+  <!-- message template -->
+  <template data-template="message">
+    <div class="message">
+      <div class="message__meta">
+        <span class="message__name"></span>
+        <span class="message__time"></span>
+      </div>
+      <div class="message__bubble"></div>
+    </div>
+  </template>
+
+  <script src="/script.js"></script>
+</body>
+</html>
