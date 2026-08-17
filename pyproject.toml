@@ -1,2 +1,11 @@
+[project]
+name = "void-chat"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "flask==3.0.3",
+    "ably==3.1.2",
+]
+
 [tool.vercel]
 entrypoint = "api.ably_token:app"
