@@ -1,0 +1,2 @@
+[tool.vercel]
+entrypoint = "api.ably_token:app"

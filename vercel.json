@@ -1,5 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/api/token", "destination": "/api/ably_token.py" }
-  ]
-}
