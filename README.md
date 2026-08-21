@@ -31,7 +31,7 @@ The Ably API key is never exposed to the client.
 public/            Static frontend (HTML/CSS/JS)
 api/ably_token.py  Token-issuing endpoint (Flask, Vercel Python function)
 requirements.txt   Python dependencies
-vercel.json        Routing/build configuration
+pyproject.toml     Project metadata, dependencies, and Vercel entrypoint config
 ```
 
 Note: the token endpoint is named `ably_token.py` rather than `token.py`
@@ -70,7 +70,7 @@ only affects local tooling and does not deploy anything.
 
 1. Push the repository to GitHub
 2. Import the project in Vercel — it detects `public/` as static output
-   and `api/ably_token.py` as a Python function via `vercel.json`
+   and `api/ably_token.py` as a Python function via `pyproject.toml`
 3. Set `ABLY_API_KEY` under Project Settings → Environment Variables
 4. Deploy
 
